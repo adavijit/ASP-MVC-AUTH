@@ -1,8 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron">
+    <h1>AUTH-MVC</h1>
+    @if (Session["FullName"] != null)
+    {
+        <p class="lead">
+            Welcome @Session["FullName"].ToString()
+        </p>
+    }
+    else
+    { 
+        <p class="lead">
+           Please login to continue
+        </p>
+    }
+
+  
 </div>

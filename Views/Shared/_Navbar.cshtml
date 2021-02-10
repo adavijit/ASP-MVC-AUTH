@@ -1,0 +1,55 @@
+﻿
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">AUTHMVC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                @Html.ActionLink("Home", "Index",
+                    new { controller = "Home" },
+                    new { @class = "nav-link" })
+
+                <span class="sr-only">(current)</span>
+
+            </li>
+            @if (Session["access_token"] == null)
+            {
+                <li class="nav-item active">
+                    @Html.ActionLink("Sign up", "SignUp",
+                        new { controller = "Home" },
+                        new { @class = "nav-link" })
+
+                    <span class="sr-only">(current)</span>
+
+                </li>
+                <li class="nav-item active">
+                    @Html.ActionLink("Login", "Login",
+                        new { controller = "Home" },
+                        new { @class = "nav-link" })
+
+                    <span class="sr-only">(current)</span>
+
+                </li>
+
+            }
+            else
+            {
+                <li class="nav-item active">
+                    @Html.ActionLink("Logout", "Logout",
+                        new { controller = "Home" },
+                        new { @class = "nav-link" })
+
+                    <span class="sr-only">(current)</span>
+
+                </li>
+            }
+
+
+        </ul>
+      
+    </div>
+</nav>
